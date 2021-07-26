@@ -2,11 +2,13 @@
 //Dependencies
 //___________________
 const express = require('express');
+const path = require('path');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
+const Hotels = require('./models/hotels');
 //___________________
 //Port
 //___________________
@@ -20,7 +22,10 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
+mongoose.connect(MONGODB_URI , {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false }
 );
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
@@ -40,9 +45,18 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 // Routes
 //___________________
 //localhost:3000
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'))
 
 app.get('/' , (req, res) => {
-  res.send('Home');
+  res.render('Home');
+});
+
+app.get('/makehotels',  (req, res) => {
+  const hotel = new Hotels({title: "My hotels", description: "cheap hotel"});
+  // await hotel.save();
+  res.send(hotel)
+
 });
 //___________________
 //Listener
