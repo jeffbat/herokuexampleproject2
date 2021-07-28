@@ -22,7 +22,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI , {
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false }
@@ -52,10 +52,20 @@ app.get('/' , (req, res) => {
   res.render('Home');
 });
 
-app.get('/makehotels',  (req, res) => {
-  const hotel = new Hotels({title: "My hotels", description: "cheap hotel"});
+app.get('/makehotels' , (req, res) => {
+  res.render('new.ejs');
+});
+
+app.post('/makehotels',  (req, res) => {
+  // const hotel = new Hotels({title: "My hotels", description: "cheap hotel"})
   // await hotel.save();
-  res.send(hotel)
+  Hotels.create({title: "My hotels", description: "cheap hotel"}, (error, createdHotel) => {
+    console.log(error)
+    console.log(createdHotel);
+    res.redirect('/')
+  })
+  // res.send(hotel)
+
 
 });
 //___________________

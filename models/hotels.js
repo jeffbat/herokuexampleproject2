@@ -8,4 +8,4 @@ const HotelsSchema = new Schema ({
   location: String
 });
 
-module.exports = mongoose.model('Hotels', HotelsSchema);
+module.exports = mongoose.model('Hotel', HotelsSchema);
