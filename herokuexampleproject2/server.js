@@ -2,15 +2,11 @@
 //Dependencies
 //___________________
 const express = require('express');
-const path = require('path');
 const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
 require('dotenv').config()
-const Travel = require('./models/travel.js')
-const travelController = require('./controllers/travel.js');
-
 //___________________
 //Port
 //___________________
@@ -20,15 +16,11 @@ const PORT = process.env.PORT || 3003;
 //Database
 //___________________
 // How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGOD_URI;
-
+const MONGODB_URI = process.env.MONGODB_URI;
 // Connect to Mongo &
 // Fix Depreciation Warnings from Mongoose
 // May or may not need these depending on your Mongoose version
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false }
+mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
 );
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
@@ -44,17 +36,13 @@ app.use(express.urlencoded({ extended: false }));// extended: false - does not a
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
-app.use('/travel',travelController)
 //___________________
 // Routes
 //___________________
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'))
-
-
-
-
+//localhost:3000
+app.get('/' , (req, res) => {
+  res.send('Hello World!');
+});
 //___________________
 //Listener
 //___________________
