@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1> Edit Page</h1>
+    <form action="/travel/<%=travel.id%>?_method=PUT" method="POST">
+      Name: <input type="text" name="name" value="<%=travel.name%>" /><br/>
+      Location: <input type="text" name="location" value="<%=travel.location%>"/><br/>
+      Image: <input type="img" name="img" value="<%travel.img%>"/><br/>
+      Recomended:
+          <input
+            type="checkbox"
+            name="recomended"
+            <% if (travel.recomended) {%>
+              checked
+            <% } %>
+            />
+          <br/>
+          <input type="submit" value="Update Destination"/>
+    </form>
+
+
+  </body>
+</html>

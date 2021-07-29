@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Travel Show Page</h1>
+      The name is <%=travel.name%> it's located in <%=travel.location%>
+      <%travel.img%>.
+      <% if(travel.recomended === true){ %>
+        It is a fun place
+      <% } else { %>
+        It is not a fun place
+      <% } %>
+
+ <nav>
+       <a href="/travel">Back to travel Home</a>
+ </nav>
+
+  </body>
+</html>
