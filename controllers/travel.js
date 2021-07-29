@@ -3,6 +3,7 @@ const travel = express.Router();
 const Travel = require('../models/travel.js')
 
 
+
 // UPDATE
 travel.put('/:id', (req, res) => {
   if(req.body.thingsTodo === 'on'){
@@ -26,6 +27,19 @@ travel.get('/:id/edit', (req, res) => {
       }
     )
   })
+})
+
+// CREATE COMMENT
+travel.post ('/:id/create/comment', (req, res) => {
+  // TODO: Put code here
+  // Travel find by id  add to comment array
+  // TODO: learn how to add array
+  // comment.push (req.body);
+})
+
+// EDIT COMMENT (optional)
+travel.post ('/:id/edit/comment/:id', (req, res) => {
+
 })
 
 // DELETE
@@ -56,17 +70,23 @@ travel.get('/seed', (req, res) => {
       {
         name: 'Washington DC',
         location: 'DC',
-        recomended: true
+        img: "https://images.unsplash.com/photo-1589909760831-0f1cc6cde049?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZGN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        recomended: true,
+        description: Lorem
       },
       {
         name: 'Virginia',
         location: 'Arlington',
-        recomended: true
+        recomended: true,
+        description: Lorem,
+        img: "https://images.unsplash.com/photo-1589909760831-0f1cc6cde049?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZGN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
       },
       {
         name: 'Maryland',
         location: 'Bethesda',
-        recomended: true
+        recomended: true,
+        description: Lorem,
+        img: "https://images.unsplash.com/photo-1589909760831-0f1cc6cde049?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZGN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
       }
     ],
     (error, data) => {

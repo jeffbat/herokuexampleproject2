@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+    <% layout('layouts/boilerplate') %>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  
     <h1>New Destination Page</h1>
     <form action="/travel" method="POST">
       Name: <input type="text" name="name" /><br/>
@@ -13,6 +9,3 @@
       Recomended: <input type="checkbox" name="recomended" /><br/>
       <input type="submit" value="Create Destination"/>
     </form>
-
-  </body>
-</html>

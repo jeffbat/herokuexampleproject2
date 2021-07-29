@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+    <% layout('layouts/boilerplate') %>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
     <h1>Travel Show Page</h1>
       The name is <%=travel.name%> it's located in <%=travel.location%>
       <%travel.img%>.
@@ -17,6 +13,3 @@
  <nav>
        <a href="/travel">Back to travel Home</a>
  </nav>
-
-  </body>
-</html>

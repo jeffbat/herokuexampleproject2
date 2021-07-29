@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+    <% layout('layouts/boilerplate') %>
     <h1> Edit Page</h1>
     <form action="/travel/<%=travel.id%>?_method=PUT" method="POST">
       Name: <input type="text" name="name" value="<%=travel.name%>" /><br/>
@@ -21,7 +15,3 @@
           <br/>
           <input type="submit" value="Update Destination"/>
     </form>
-
-
-  </body>
-</html>

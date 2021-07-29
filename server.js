@@ -10,6 +10,7 @@ const db = mongoose.connection;
 require('dotenv').config()
 const Travel = require('./models/travel.js')
 const travelController = require('./controllers/travel.js');
+const ejsMate = require("ejs-mate");
 
 //___________________
 //Port
@@ -49,6 +50,7 @@ app.use('/travel',travelController)
 // Routes
 //___________________
 
+app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
