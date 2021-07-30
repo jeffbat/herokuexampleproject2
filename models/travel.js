@@ -1,12 +1,17 @@
 const mongoose = require('mongoose');
-
+const Schema = mongoose.Schema;
 const travelSchema = new mongoose.Schema({
-    name:  { type: String, required: true },
-    location:  { type: String, required: true },
-    img: { type: String, required: true},
+    name:  { type: String },
+    location:  { type: String},
+    img: { type: String },
     price:{type: Number},
-    description: { type: String },
-    recomended: Boolean,
+    recomended: {type: Boolean},
+    reviews: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Review'
+      }
+    ]
     // TODO: learn how to add array
     // comment: [
       // {

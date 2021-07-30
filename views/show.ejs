@@ -1,15 +1,40 @@
     <% layout('layouts/boilerplate') %>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-
     <h1>Travel Show Page</h1>
-      The name is <%=travel.name%> it's located in <%=travel.location%>
-      <%travel.img%>.
-      <% if(travel.recomended === true){ %>
-        It is a fun place
-      <% } else { %>
-        It is not a fun place
-      <% } %>
+      <div class="card" style="width: 28rem;">
+          <img class="card-img-top" src="<%=travel.img%>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= travel.name%></h5>
+          <p class="card-text"><%=travel.location%></p>
+          <p class="card-text">$<%=travel.price%></p>
+          <p class="card-text"><% if(travel.recomended === true){ %>
+                It is a fun place
+                <% } else { %>
+                  It is not a fun place
+                <% } %></p>
+          <div class="card-body">
+              <a class="card-link btn btn-warning" href="/travel/<%=travel._id%>/edit">Edit</a>
+              <a class="card-link btn btn-primary" href="/travel">Back to travel Home</a>
+              <form class="d-inline" action="/travel/<%=travel._id%>?_method=DELETE" method="POST">
+                <button class="btn btn-danger">Delete</button>
+              </form>
+          </div>
+        </div>
+        <h2>Leave a Review</h2>
+        <form action="/travel/<%=travel._id%>/reviews" method="POST" class="mb-4 validated-form" novalidate>
+          <div class="mb-3">
+              <label for="rating">Rating</label>
+              <input type="range" min="1" max="5" name="" value="">
 
- <nav>
-       <a href="/travel">Back to travel Home</a>
- </nav>
+          </div>
+          <div class="mb-3">
+              <label class="form-label" for="body">Review:</label>
+              <textarea class="form-control" name="review[body]" rows="3" cols="80" required></textarea>
+              <div class="valid-feedback">
+                Looks good!
+
+              </div>
+          </div>
+          <button class="btn btn-success">Submit</button>
+
+        </form>
+      </div>

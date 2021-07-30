@@ -1,11 +1,55 @@
     <% layout('layouts/boilerplate') %>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-  
-    <h1>New Destination Page</h1>
-    <form action="/travel" method="POST">
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css" /> -->
+    <div class="row">
+      <h1 class="text-center">New Destination</h1>
+      <div class="col-6 offset-3">
+        <form action="/travel" method="POST">
+          <div>
+           <label class="form-label" for="name">Name</label>
+           <input class="form-control" type="text" name="name" />
+         </div>
+         <div>
+           <label class="form-label"for="location">Location</label>
+           <input class="form-control"type="text" name="location" />
+         </div>
+         <div>
+           <label class="form-label" for="price">Price</label>
+           <input class="form-control"type="text" name="price" /><br/>
+         </div>
+         <div>
+           <label class="form-label" for="image">Image Url</label>
+           <input class="form-control"type="text" name="img" /><br/>
+         </div>
+         <div>
+           <label class="form-label" for="description">Description</label>
+           <input class="form-control"type="text" name="description" /><br/>
+         </div>
+         <div>
+           <label for="recomended">Recomended</label>
+           <input type="checkbox" name="recomended" /><br/>
+         </div>
+         <button class="btn btn-success">Create a new destination</button>
+       </form>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <form action="/travel" method="POST">
       Name: <input type="text" name="name" /><br/>
       Location: <input type="text" name="location" /><br/>
       Image : <input type="text" name="img" /><br/>
       Recomended: <input type="checkbox" name="recomended" /><br/>
       <input type="submit" value="Create Destination"/>
-    </form>
+    </form> -->

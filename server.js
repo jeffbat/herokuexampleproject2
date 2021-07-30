@@ -11,6 +11,9 @@ require('dotenv').config()
 const Travel = require('./models/travel.js')
 const travelController = require('./controllers/travel.js');
 const ejsMate = require("ejs-mate");
+// const { travelSchema, reviewSchema} = require('./schemas.js');
+const Joi = require('joi');
+
 
 //___________________
 //Port
@@ -37,6 +40,7 @@ db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 //___________________
 //Middleware
+
 //___________________
 //use public folder for static assets
 app.use(express.static('public'));
